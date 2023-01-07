@@ -1,5 +1,7 @@
 package com.sanjay.ipldashboard.service.impl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.sanjay.ipldashboard.model.Team;
@@ -25,6 +27,12 @@ public class TeamServiceImpl implements TeamService {
 		team.setMatches(matchRepository.findLatestMatchesByTeam(teamName, 4));
 		
 		return team;
+	}
+
+	@Override
+	public Iterable<Team> getTeams() {
+		
+		return teamRepository.findAll();
 	}
 
 }
